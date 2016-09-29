@@ -1,4 +1,4 @@
-const compareBenchmarks = require('../');
+const talladega = require('../');
 
 const fn = `
 	cal = new Driver("Cal", "Naughton", "Jr.", "Mike Honcho", "Shake and bake!");
@@ -67,4 +67,4 @@ const specs = module.exports = [
 	}
 ];
 
-compareBenchmarks('Prototype pattern versus closure export pattern', specs);
+talladega('Prototype pattern versus closure export pattern', specs);

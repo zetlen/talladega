@@ -1,6 +1,6 @@
-const compareBenchmarks = require('../');
+const talladega = require('../');
 
-const beforeAll = `
+const setup = `
 	global.assert = require('assert');
 	global.makeTypesObject = function() {
 		return {
@@ -18,31 +18,27 @@ const teardown = `
 	validateTypesObject(types);
 `;
 
-compareBenchmarks(
-
-	'Hash mode vs hidden type',
-	[
-		{
-			name: 'Consistently typed properties',
-			beforeAll,
-			teardown,
-			fn: `
-				var types = makeTypesObject();
-				types.str = 'new string';
-				types.num = 10;
-				types.arr = null;
-			`
-		},
-		{
-			name: 'Changing property types',
-			beforeAll,
-			teardown,
-			fn: `
-				var types = makeTypesObject();
-				types.str = 10;
-				types.num = ['a new array of strings'];
-				delete types.arr;
-			`
-		}
-	]
-);
+talladega('Hash mode vs hidden type', [
+	{
+		name: 'Consistently typed properties',
+		setup,
+		teardown,
+		fn: `
+			var types = makeTypesObject();
+			types.str = 'new string';
+			types.num = 10;
+			types.arr = null;
+		`
+	},
+	{
+		name: 'Changing property types',
+		setup,
+		teardown,
+		fn: `
+			var types = makeTypesObject();
+			types.str = 10;
+			types.num = ['a new array of strings'];
+			delete types.arr;
+		`
+	}
+], { color: 'green' });

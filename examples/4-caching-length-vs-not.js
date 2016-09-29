@@ -1,4 +1,4 @@
-const compareBenchmarks = require('../');
+const talladega = require('../');
 
 const setup = `
 	var emporium = [
@@ -19,30 +19,27 @@ const setup = `
 	];
 `
 
-compareBenchmarks(
-	'Caching length in for loops versus not',
-	[
-		{
-			name: 'cache length',
-			setup,
-			fn: `
-				var sum = 0;
-				for (var i = emporium.length - 1; i >= 0; i--) {
-					sum += emporium[i].length;
-				}
-				return sum;
-			`
-		},
-		{
-			name: 'do not cache length',
-			setup,
-			fn: `
-				var sum = 0;
-				for (var i = 0; i < emporium.length; i++) {
-					sum += emporium[i].length;
-				}
-				return sum;
-			`
+talladega('Caching length in for loops versus not', [
+	{
+		name: 'cache length',
+		setup,
+		fn: `
+		var sum = 0;
+		for (var i = emporium.length - 1; i >= 0; i--) {
+			sum += emporium[i].length;
 		}
-	]
-);
+		return sum;
+		`
+	},
+	{
+		name: 'do not cache length',
+		setup,
+		fn: `
+		var sum = 0;
+		for (var i = 0; i < emporium.length; i++) {
+			sum += emporium[i].length;
+		}
+		return sum;
+		`
+	}
+]);
