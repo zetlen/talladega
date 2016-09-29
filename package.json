@@ -1,0 +1,36 @@
+{
+  "name": "talladega",
+  "version": "1.0.0",
+  "description": "jsperf in the console, because there can't be two number ones",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zetlen/talladega.git"
+  },
+  "keywords": [
+    "jsperf",
+    "perf",
+    "benchmark",
+    "benchmarks",
+    "optimization",
+    "microoptimization",
+    "prematureoptimization",
+    "timewasters"
+  ],
+  "author": "zetlen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zetlen/talladega/issues"
+  },
+  "homepage": "https://github.com/zetlen/talladega#readme",
+  "dependencies": {
+    "benchmark": "^2.1.1",
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^3.5.5",
+    "platform": "^1.3.1",
+    "xstream": "^6.4.1"
+  }
+}
